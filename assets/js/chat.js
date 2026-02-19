@@ -77,27 +77,56 @@ class ChatApp {
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || `HTTP Error: ${response.status}`);
+                const errorText = await response.text();
+                throw new Error(errorText || `HTTP Error: ${response.status}`);
             }
 
-            const data = await response.json();
+            // Get the response text (handles both streaming and non-streaming)
+            const responseText = await response.text();
             
-            // Extract the response from Cloudflare AI response
-            if (data.response) {
-                return data.response;
-            } else if (data.result?.response) {
-                return data.result.response;
-            } else if (Array.isArray(data) && data.length > 0) {
-                // Handle array response format
-                return data[0];
-            } else {
-                throw new Error("Unexpected response format from AI");
+            // Try to parse as JSON first
+            try {
+                const data = JSON.parse(responseText);
+                // Extract the response from Cloudflare AI response
+                if (data.response) {
+                    return data.response;
+                } else if (data.result?.response) {
+                    return data.result.response;
+                } else if (Array.isArray(data) && data.length > 0) {
+                    return data[0];
+                }
+                return responseText;
+            } catch (e) {
+                // If not JSON, it's likely SSE (streaming) format
+                // Parse SSE format: "data: {...}"
+                return this.parseSSE(responseText);
             }
         } catch (error) {
             console.error("API Error:", error);
             throw error;
         }
+    }
+
+    parseSSE(text) {
+        // Parse Server-Sent Events format
+        const lines = text.split('\n');
+        let fullResponse = '';
+        
+        for (const line of lines) {
+            if (line.startsWith('data: ')) {
+                try {
+                    const jsonStr = line.substring(6); // Remove 'data: ' prefix
+                    const data = JSON.parse(jsonStr);
+                    if (data.token) {
+                        fullResponse += data.token;
+                    }
+                } catch (e) {
+                    console.warn('Failed to parse SSE line:', line, e);
+                }
+            }
+        }
+        
+        return fullResponse || 'No response received';
     }
 
     addThinkingIndicator() {
