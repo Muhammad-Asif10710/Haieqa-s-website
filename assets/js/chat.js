@@ -120,30 +120,43 @@ class ChatApp {
         // Parse Server-Sent Events format from Cloudflare AI
         let fullResponse = '';
         
-        // Handle both newline-separated and concatenated data: format
-        // Split by 'data:' to handle cases where newlines might be missing
+        // Split by 'data:' to handle each chunk
         const parts = text.split('data:');
+        console.log("Total parts after split:", parts.length);
         
-        for (const part of parts) {
-            const trimmedPart = part.trim();
-            if (!trimmedPart) continue;
+        for (let i = 0; i < parts.length; i++) {
+            const part = parts[i].trim();
+            
+            // Skip empty parts
+            if (!part) {
+                console.log("Skipping empty part at index", i);
+                continue;
+            }
+            
+            // Skip the [DONE] marker
+            if (part === '[DONE]') {
+                console.log("Found [DONE] marker");
+                continue;
+            }
             
             try {
-                // Parse each JSON object
-                const data = JSON.parse(trimmedPart);
-                console.log("Parsed data chunk:", data); // Debug log
+                // Try to parse as JSON
+                const data = JSON.parse(part);
+                console.log("Successfully parsed chunk", i, ":", data);
                 
-                // Extract response field - this is what Cloudflare AI sends
-                if (data.response) {
+                // Extract response field
+                if (data.response !== undefined && data.response !== null) {
+                    console.log("Adding response:", JSON.stringify(data.response));
                     fullResponse += data.response;
                 }
             } catch (e) {
-                console.error('Error parsing SSE chunk:', trimmedPart, e);
+                console.error('Error parsing chunk at index', i, ':', part, e);
             }
         }
         
         const result = fullResponse.trim() || 'No response received';
-        console.log("Final parsed response:", result); // Debug log
+        console.log("Final accumulated response:", result);
+        console.log("Response length:", result.length);
         return result;
     }
 
