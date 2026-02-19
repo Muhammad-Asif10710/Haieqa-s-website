@@ -70,7 +70,7 @@ class ChatApp {
 
     async sendToAPI(messages) {
         try {
-            const response = await fetch("https://llm-chat-app-template-haieqa.npam10710.workers.dev/", {
+            const response = await fetch("https://llm-chat-app-template-haieqa.npam10710.workers.dev/aichat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ messages }),
