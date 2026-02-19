@@ -83,10 +83,13 @@ class ChatApp {
 
             // Get the response text
             const responseText = await response.text();
+            console.log("Raw response:", responseText.substring(0, 200)); // Debug log
             
             // Check if it's SSE format (starts with "data: ")
             if (responseText.trim().startsWith('data:')) {
-                return this.parseSSE(responseText);
+                const result = this.parseSSE(responseText);
+                console.log("Parsed SSE result:", result); // Debug log
+                return result;
             }
             
             // Try to parse as regular JSON
@@ -114,33 +117,34 @@ class ChatApp {
     }
 
     parseSSE(text) {
-        // Parse Server-Sent Events format
-        const lines = text.split('\n');
+        // Parse Server-Sent Events format from Cloudflare AI
         let fullResponse = '';
         
-        for (const line of lines) {
-            const trimmedLine = line.trim();
-            if (trimmedLine.startsWith('data:')) {
-                try {
-                    // Remove 'data: ' or 'data:' prefix
-                    let jsonStr = trimmedLine.substring(5).trim();
-                    if (jsonStr) {
-                        const data = JSON.parse(jsonStr);
-                        // Extract response value - check all possible fields
-                        if (data.response) {
-                            fullResponse += data.response;
-                        } else if (data.content) {
-                            fullResponse += data.content;
-                        } else if (typeof data === 'string') {
-                            fullResponse += data;
-                        }
-                    }
-                } catch (e) {
-                    console.error('Error parsing SSE line:', e);
+        // Handle both newline-separated and concatenated data: format
+        // Split by 'data:' to handle cases where newlines might be missing
+        const parts = text.split('data:');
+        
+        for (const part of parts) {
+            const trimmedPart = part.trim();
+            if (!trimmedPart) continue;
+            
+            try {
+                // Parse each JSON object
+                const data = JSON.parse(trimmedPart);
+                console.log("Parsed data chunk:", data); // Debug log
+                
+                // Extract response field - this is what Cloudflare AI sends
+                if (data.response) {
+                    fullResponse += data.response;
                 }
+            } catch (e) {
+                console.error('Error parsing SSE chunk:', trimmedPart, e);
             }
         }
-        return fullResponse.trim() || 'No response received';
+        
+        const result = fullResponse.trim() || 'No response received';
+        console.log("Final parsed response:", result); // Debug log
+        return result;
     }
 
     addThinkingIndicator() {
