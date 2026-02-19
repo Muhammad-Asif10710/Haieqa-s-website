@@ -69,48 +69,35 @@ class ChatApp {
     }
 
     async sendToAPI(messages) {
-        const response = await fetch("https://muhammadasif-tech.online/aichat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ messages }),
-        });
+        try {
+            const response = await fetch("https://llm-chat-app-template-haieqa.npam10710.workers.dev/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ messages }),
+            });
 
-        const reader = response.body?.getReader();
-        const decoder = new TextDecoder();
-        let result = "";
-
-        if (reader) {
-            let done = false;
-            while (!done) {
-                const { value, done: streamDone } = await reader.read();
-                done = streamDone;
-                if (value) {
-                    const chunk = decoder.decode(value);
-                    const lines = chunk.split('\n');
-                    for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = line.slice(6);
-                            if (data === '[DONE]') {
-                                done = true;
-                                break;
-                            }
-                            try {
-                                const parsed = JSON.parse(data);
-                                if (parsed.response) {
-                                    result += parsed.response;
-                                }
-                            } catch (e) {
-                                // Ignore invalid JSON
-                            }
-                        }
-                    }
-                }
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `HTTP Error: ${response.status}`);
             }
-        } else {
-            result = await response.text();
-        }
 
-        return result;
+            const data = await response.json();
+            
+            // Extract the response from Cloudflare AI response
+            if (data.response) {
+                return data.response;
+            } else if (data.result?.response) {
+                return data.result.response;
+            } else if (Array.isArray(data) && data.length > 0) {
+                // Handle array response format
+                return data[0];
+            } else {
+                throw new Error("Unexpected response format from AI");
+            }
+        } catch (error) {
+            console.error("API Error:", error);
+            throw error;
+        }
     }
 
     addThinkingIndicator() {
