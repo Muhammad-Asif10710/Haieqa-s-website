@@ -50,6 +50,7 @@ class ChatApp {
 
         const userMessage = { role: "user", content: input };
         this.messages.push(userMessage);
+        console.log("User message added:", userMessage);
         this.chatInput.value = "";
         this.renderMessages();
         this.isThinking = true;
@@ -59,17 +60,31 @@ class ChatApp {
 
         try {
             const aiResponse = await this.sendToAPI([...this.messages]);
-            this.messages.push({ role: "assistant", content: aiResponse });
+            console.log("AI response received:", aiResponse);
+            console.log("AI response length:", aiResponse ? aiResponse.length : 0);
+            
+            if (aiResponse && aiResponse.trim() !== '') {
+                const assistantMessage = { role: "assistant", content: aiResponse };
+                this.messages.push(assistantMessage);
+                console.log("Assistant message added to messages:", assistantMessage);
+                console.log("Total messages now:", this.messages.length);
+            } else {
+                console.warn("Empty AI response received:", aiResponse);
+                this.messages.push({ role: "assistant", content: "Sorry, I received an empty response. Please try again." });
+            }
         } catch (error) {
+            console.error("Error in sendMessage:", error);
             this.messages.push({ role: "assistant", content: "Sorry, I encountered an error. Please try again." });
         } finally {
             this.isThinking = false;
+            console.log("About to render messages. Total messages:", this.messages.length);
             this.renderMessages();
         }
     }
 
     async sendToAPI(messages) {
         try {
+            console.log("Sending request to API with", messages.length, "messages");
             const response = await fetch("https://llm-chat-app-template-haieqa.npam10710.workers.dev/aichat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -83,12 +98,16 @@ class ChatApp {
 
             // Get the response text
             const responseText = await response.text();
-            console.log("Raw response:", responseText.substring(0, 200)); // Debug log
+            console.log("Raw response received, length:", responseText.length);
+            console.log("Raw response first 300 chars:", responseText.substring(0, 300));
             
             // Check if it's SSE format (starts with "data: ")
             if (responseText.trim().startsWith('data:')) {
+                console.log("Detected SSE format, parsing...");
                 const result = this.parseSSE(responseText);
-                console.log("Parsed SSE result:", result); // Debug log
+                console.log("parseSSE returned:", result);
+                console.log("Result length:", result ? result.length : 0);
+                console.log("Result is empty?", !result || result.trim() === '');
                 return result;
             }
             
@@ -179,14 +198,17 @@ class ChatApp {
     }
 
     renderMessages() {
+        console.log("renderMessages called with", this.messages.length, "messages");
         this.chatMessages.innerHTML = '';
-        this.messages.forEach(message => {
+        this.messages.forEach((message, index) => {
+            console.log("Rendering message", index, ":", message.role, "-", message.content.substring(0, 50));
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${message.role}`;
             messageDiv.textContent = message.content;
             this.chatMessages.appendChild(messageDiv);
         });
         this.scrollToBottom();
+        console.log("renderMessages complete. DOM has", this.chatMessages.children.length, "children");
     }
 
     scrollToBottom() {
