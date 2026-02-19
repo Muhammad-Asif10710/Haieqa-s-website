@@ -152,16 +152,16 @@ class ChatApp {
                 continue;
             }
             
-            // Skip the [DONE] marker
-            if (part === '[DONE]') {
-                console.log("Found [DONE] marker");
+            // Skip the [DONE] marker and any non-JSON parts
+            if (part === '[DONE]' || part.startsWith('[DONE]') || !part.startsWith('{')) {
+                console.log("Skipping non-JSON part at index", i, ":", part.substring(0, 50));
                 continue;
             }
             
             try {
                 // Try to parse as JSON
                 const data = JSON.parse(part);
-                console.log("Successfully parsed chunk", i, ":", data);
+                console.log("Successfully parsed chunk", i);
                 
                 // Extract response field
                 if (data.response !== undefined && data.response !== null) {
@@ -169,7 +169,7 @@ class ChatApp {
                     fullResponse += data.response;
                 }
             } catch (e) {
-                console.error('Error parsing chunk at index', i, ':', part, e);
+                console.error('Error parsing chunk at index', i, ':', part.substring(0, 50), e.message);
             }
         }
         
