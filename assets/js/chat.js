@@ -126,12 +126,13 @@ class ChatApp {
                     let jsonStr = trimmedLine.substring(5).trim();
                     if (jsonStr) {
                         const data = JSON.parse(jsonStr);
-                        if (typeof data === 'string') {
-                            fullResponse += data;
+                        // Extract response value - check all possible fields
+                        if (data.response) {
+                            fullResponse += data.response;
                         } else if (data.content) {
                             fullResponse += data.content;
-                        } else if (data.response) {
-                            fullResponse += data.response;
+                        } else if (typeof data === 'string') {
+                            fullResponse += data;
                         }
                     }
                 } catch (e) {
@@ -139,7 +140,7 @@ class ChatApp {
                 }
             }
         }
-        return fullResponse || text;
+        return fullResponse.trim() || 'No response received';
     }
 
     addThinkingIndicator() {
