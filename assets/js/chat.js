@@ -194,25 +194,30 @@ class ChatApp {
             <div class="thinking-text">AI is thinking...</div>
         `;
         this.chatMessages.appendChild(thinkingDiv);
-        this.scrollToBottom();
+        this.scrollToLastMessage(thinkingDiv);
     }
 
     renderMessages() {
         console.log("renderMessages called with", this.messages.length, "messages");
         this.chatMessages.innerHTML = '';
+        let lastMessageDiv;
         this.messages.forEach((message, index) => {
             console.log("Rendering message", index, ":", message.role, "-", message.content.substring(0, 50));
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${message.role}`;
             messageDiv.textContent = message.content;
             this.chatMessages.appendChild(messageDiv);
+            lastMessageDiv = messageDiv;
         });
-        this.scrollToBottom();
+        this.scrollToLastMessage(lastMessageDiv);
         console.log("renderMessages complete. DOM has", this.chatMessages.children.length, "children");
     }
 
-    scrollToBottom() {
-        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+    scrollToLastMessage(element) {
+        if (element) {
+            // Scroll to the top of the last message
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 }
 
