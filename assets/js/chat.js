@@ -184,7 +184,7 @@ class ChatApp {
         thinkingDiv.className = 'chat-message assistant thinking';
         thinkingDiv.innerHTML = `
             <div class="thinking-indicator">
-                <span>🤔</span>
+                <img src="assets/images/haieqa_zahid.png" alt="emoji" width="20" height="20">
                 <span class="thinking-dots">
                     <span>.</span>
                     <span>.</span>
