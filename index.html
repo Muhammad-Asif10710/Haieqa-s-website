@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/exercises.css">
 
 </head>
 <body>
@@ -363,6 +364,101 @@
                 
         
         
+                <section class="exercises-area page-section scroll-to-page" id="exercises">
+                    <div class="custom-container">
+                        <div class="exercises-content content-width">
+                            <div class="section-header">
+                                <h1 class="scroll-animation" data-animation="fade_from_bottom">Do Exercises <span>With Me</span></h1>
+                            </div>
+
+                            <div class="row projects-grid">
+                                
+                                <!-- Exercise 1: Progressive Muscle Relaxation -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_right">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">💪</div>
+                                            <h3 class="project-title"> Muscle Relaxation</h3>
+                                            <p class="project-tech">Stress Relief & Tension Release</p>
+                                            <p>Systematically tense and release different muscle groups to reduce physical tension and promote deep relaxation throughout your body.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="muscle">Start Exercise</button>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 2: Guided Breathing -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_left">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">🫁</div>
+                                            <h3 class="project-title">Guided Breathing</h3>
+                                            <p class="project-tech">Calm & Centering</p>
+                                            <p>Master powerful breathing techniques like the 4-7-8 method to calm your nervous system and reduce anxiety instantly.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="breathing">Start Exercise</button>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 3: Mindfulness Meditation -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_right">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">🧘‍♀️</div>
+                                            <h3 class="project-title">Mindfulness Meditation</h3>
+                                            <p class="project-tech">Mental Clarity & Focus</p>
+                                            <p>Learn to observe your thoughts without judgment and cultivate present-moment awareness for improved mental well-being.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="mindfulness">Start Exercise</button>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 4: Grounding Technique -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_left">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">🌍</div>
+                                            <h3 class="project-title">Grounding Technique (5-4-3-2-1)</h3>
+                                            <p class="project-tech">Anxiety Relief & Presence</p>
+                                            <p>Connect with your surroundings using sensory awareness to bring yourself back to the present moment during distress.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="grounding">Start Exercise</button>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 5: Body Scan Relaxation -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_right">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">✨</div>
+                                            <h3 class="project-title">Body Scan Relaxation</h3>
+                                            <p class="project-tech">Deep Relaxation & Awareness</p>
+                                            <p>Guided journey through your body to release tension, increase awareness, and promote restorative sleep and relaxation.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="bodyscan">Start Exercise</button>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 6: Visualization & Imagery -->
+                                <div class="col-md-6 col-12 scroll-animation" data-animation="fade_from_left">
+                                    <div class="project-card">
+                                        <div class="project-card-content">
+                                            <div class="project-icon">🌅</div>
+                                            <h3 class="project-title">Visualization & Imagery</h3>
+                                            <p class="project-tech">Mental Escape & Calm</p>
+                                            <p>Use guided visualization to transport yourself to peaceful places and activate your body's natural relaxation response.</p>
+                                        </div>
+                                        <button class="theme-btn exercise-btn" data-exercise="visualization">Start Exercise</button>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+        
+        
                 <section class="testimonial-area page-section scroll-to-page" id="testimonial">
                     <div class="custom-container">
                         <div class="testimonial-content content-width">
@@ -445,6 +541,30 @@
             </div>
         </div>
     </main>
+
+    <!-- Exercise Modal -->
+    <div class="exercise-modal-overlay" id="exerciseModal">
+        <div class="exercise-modal">
+            <button class="exercise-close" id="closeExercise">&times;</button>
+            <div class="exercise-modal-content">
+                <h2 id="exerciseTitle"></h2>
+                <div class="exercise-animation-container">
+                    <div id="animationArea"></div>
+                </div>
+                <div class="exercise-instructions">
+                    <p id="exerciseInstructions"></p>
+                </div>
+                <div class="exercise-timer">
+                    <p id="timerDisplay">3:00</p>
+                </div>
+                <div class="exercise-controls">
+                    <button id="startBtn" class="theme-btn">Start</button>
+                    <button id="pauseBtn" class="theme-btn" style="display:none;">Pause</button>
+                    <button id="resetBtn" class="theme-btn">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
     <!-- Chat Icon -->
@@ -481,6 +601,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/color.js"></script>
     <script src="assets/js/chat.js"></script>
+    <script src="assets/js/exercises.js"></script>
 
 </body>
 

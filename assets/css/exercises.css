@@ -1,0 +1,396 @@
+/* Exercise Modal Styles */
+.exercise-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInOverlay 0.3s ease-in-out;
+}
+
+.exercise-modal-overlay.active {
+    display: flex;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.exercise-modal {
+    background: linear-gradient(135deg, var(--accent-primary, #E91E63) 0%, var(--accent-primary-active, #C2185B) 100%);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(233, 30, 99, 0.3);
+    position: relative;
+    animation: slideInModal 0.4s ease-out;
+}
+
+@keyframes slideInModal {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.exercise-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.exercise-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.exercise-modal-content {
+    color: white;
+    text-align: center;
+}
+
+#exerciseTitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.exercise-animation-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+#animationArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.exercise-instructions {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.exercise-timer {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.exercise-controls .theme-btn {
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.exercise-controls .theme-btn:hover {
+    background: white;
+    color: var(--accent-primary, #E91E63);
+    transform: scale(1.05);
+}
+
+/* Animation Elements */
+.breathing-circle {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-primary, #E91E63) 0%, var(--accent-info, #D81B60) 100%);
+    border-radius: 50%;
+    animation: breathe 8s infinite ease-in-out;
+    box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+}
+
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    }
+    50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 60px rgba(233, 30, 99, 0.9);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    }
+}
+
+.muscle-zones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.muscle-zone {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    animation: tense 2s infinite;
+}
+
+@keyframes tense {
+    0% {
+        transform: scale(1);
+        background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+    }
+    50% {
+        transform: scale(1.15);
+        background: linear-gradient(135deg, var(--accent-secondary, #FF1493) 0%, var(--accent-primary-active, #C2185B) 100%);
+    }
+    100% {
+        transform: scale(1);
+        background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+    }
+}
+
+.meditation-particles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+.body-scan-outline {
+    font-size: 120px;
+    animation: scanGlow 3s infinite ease-in-out;
+}
+
+@keyframes scanGlow {
+    0%, 100% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+        filter: brightness(1);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        filter: brightness(1.3);
+    }
+}
+
+.grounding-elements {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 250px;
+}
+
+.sense-element {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    animation: pulseSense 2s infinite;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sense-element:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pulseSense {
+    0%, 100% {
+        transform: scale(1);
+        background: rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+.visualization-scene {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(180deg, #E91E63 0%, #F06292 50%, #FFB3D9 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    animation: sceneShift 10s infinite ease-in-out;
+}
+
+.sun {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--accent-primary, #E91E63);
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    animation: sunGlow 4s infinite ease-in-out;
+}
+
+@keyframes sunGlow {
+    0%, 100% {
+        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(233, 30, 99, 0.9);
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    background: white;
+    border-radius: 30px;
+    opacity: 0.8;
+    animation: cloudDrift 8s infinite ease-in-out;
+}
+
+.cloud:nth-child(2) {
+    width: 100px;
+    height: 35px;
+    top: 80px;
+    left: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes cloudDrift {
+    0% {
+        left: -100px;
+    }
+    50% {
+        left: 150%;
+    }
+    100% {
+        left: -100px;
+    }
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: #8b7355;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .exercise-modal {
+        padding: 30px 20px;
+    }
+
+    #exerciseTitle {
+        font-size: 22px;
+    }
+
+    .breathing-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .body-scan-outline {
+        font-size: 100px;
+    }
+
+    .exercise-timer {
+        font-size: 36px;
+    }
+
+    .exercise-controls {
+        flex-wrap: wrap;
+    }
+
+    .exercise-controls .theme-btn {
+        flex: 1;
+        min-width: 100px;
+    }
+}
