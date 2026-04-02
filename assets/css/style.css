@@ -771,7 +771,7 @@ main.drake-main {
 
 /* 07 - Hero Section */
 .hero-section {
-    padding: 68px 0;
+    padding: 20px 0;
     position: relative;
     overflow: hidden;
 }
@@ -886,8 +886,8 @@ body .body-overlay {
 
 /* 10 - About */
 .about-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 .about-area .about-content p {
     line-height: 30px;
@@ -897,8 +897,8 @@ body .body-overlay {
 
 /* 11 - Resume */
 .resume-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 .resume-area .resume-content .resume-timeline .item {
     position: relative;
@@ -966,8 +966,8 @@ body .body-overlay {
 
 /* 12 - Services */
 .services-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 .services-items .service-item {
     border: 1px solid #B7A9A1;
@@ -1022,8 +1022,8 @@ body .body-overlay {
 
 /* 13 - Skills */
 .skills-area {
-    padding-top: 90px;
-    padding-bottom: 40px;
+    padding-top: 22px;
+    padding-bottom: 15px;
 }
 .skills .skill {
     margin-bottom: 50px;
@@ -1058,8 +1058,8 @@ body .body-overlay {
 
 /* 14 - Projects */
 .projects-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 .project-card {
     background-color: var(--bg-elevated);
@@ -1138,8 +1138,8 @@ body .body-overlay {
 
 /* 15 - Portfolio */
 .portfolio-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 .portfolio-items .portfolio-item {
     margin-bottom: 62px;
@@ -1282,7 +1282,7 @@ body .body-overlay {
 
 /* 16 - Client */
 .clients-logos {
-    padding-top: 100px;
+    padding-top: 30px;
 }
 .clients-logos h4 {
     color: #2A2526;
@@ -1307,8 +1307,8 @@ body .body-overlay {
 
 /* 17 - Pricing Table */
 .pricing-area {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 
 .pricing-table-items .pricing-table {
@@ -1384,7 +1384,8 @@ body .body-overlay {
 
 /* 18 - Contact */
 .contact-area {
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .contact-area .contact-content h3 {
     font-size: 24px;
@@ -1485,7 +1486,7 @@ body .body-overlay {
 /* 19 - Breadcrumb */
 .breadcrumb-area {
     position: relative;
-    padding: 50px 0px 50px;
+    padding: 15px 0px 15px;
     background: #FFF5F8;
     overflow: hidden;
     z-index: 1;
@@ -1543,8 +1544,8 @@ body .body-overlay {
 
 /* 20 - Blog items */
 .blog-content-area {
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 .blog-content-area .blog-items {
     padding-right: 20px;
