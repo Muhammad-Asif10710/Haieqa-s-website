@@ -239,7 +239,7 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #fff;
+    background: blue;
     border-radius: 50%;
     opacity: 0.6;
     animation: float 4s infinite ease-in-out;
