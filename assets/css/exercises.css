@@ -27,14 +27,14 @@
 }
 
 .exercise-modal {
-    background: linear-gradient(135deg, var(--accent-primary, #E91E63) 0%, var(--accent-primary-active, #C2185B) 100%);
+    background: linear-gradient(135deg, #e7f5f2 0%, #c0dfd7 100%);
     border-radius: 20px;
     padding: 40px;
     max-width: 600px;
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(233, 30, 99, 0.3);
+    box-shadow: 0 20px 40px rgba(20, 90, 80, 0.2);
     position: relative;
     animation: slideInModal 0.4s ease-out;
 }
@@ -54,9 +54,9 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(29, 70, 62, 0.9);
     border: none;
-    color: white;
+    color: #f7fcfb;
     font-size: 32px;
     cursor: pointer;
     padding: 0;
@@ -66,11 +66,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: background 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease;
 }
 
 .exercise-close:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(27, 120, 105, 0.95);
+    transform: scale(1.08);
 }
 
 .exercise-modal-content {
@@ -84,10 +86,27 @@
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #164239;
+}
+
+.exercises-area .project-title {
+    color: #164239 !important;
+}
+
+.exercises-area .project-tech {
+    color: #2f7a71 !important;
+}
+
+.exercises-area .project-description {
+    color: #285d50 !important;
+}
+
+.exercise-modal-content {
+    color: #164239;
 }
 
 .exercise-animation-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(245, 255, 250, 0.38);
     border-radius: 15px;
     padding: 40px 20px;
     margin-bottom: 30px;
@@ -95,7 +114,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 }
 
 #animationArea {
@@ -107,12 +126,13 @@
 }
 
 .exercise-instructions {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 1.6;
+    color: #1f5b54;
 }
 
 .exercise-timer {
@@ -131,9 +151,9 @@
 
 .exercise-controls .theme-btn {
     padding: 10px 25px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(100, 155, 140, 0.7);
+    color: #124f48;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -141,33 +161,33 @@
 }
 
 .exercise-controls .theme-btn:hover {
-    background: white;
-    color: var(--accent-primary, #E91E63);
-    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.94);
+    color: #0f423a;
+    transform: scale(1.03);
 }
 
 /* Animation Elements */
 .breathing-circle {
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, var(--accent-primary, #E91E63) 0%, var(--accent-info, #D81B60) 100%);
+    background: radial-gradient(circle, #b3e7d4 0%, #86c7b4 100%);
     border-radius: 50%;
     animation: breathe 8s infinite ease-in-out;
-    box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    box-shadow: 0 0 40px rgba(40, 155, 120, 0.5);
 }
 
 @keyframes breathe {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+        box-shadow: 0 0 40px rgba(40, 155, 120, 0.5);
     }
     50% {
         transform: scale(1.3);
-        box-shadow: 0 0 60px rgba(233, 30, 99, 0.9);
+        box-shadow: 0 0 60px rgba(40, 155, 120, 0.9);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+        box-shadow: 0 0 40px rgba(40, 155, 120, 0.5);
     }
 }
 
@@ -182,7 +202,7 @@
 .muscle-zone {
     width: 90px;
     height: 90px;
-    background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+    background: linear-gradient(135deg, #aeded3 0%, #7bbab1 100%);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -194,15 +214,15 @@
 @keyframes tense {
     0% {
         transform: scale(1);
-        background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+        background: linear-gradient(135deg, #aeded3 0%, #7bbab1 100%);
     }
     50% {
         transform: scale(1.15);
-        background: linear-gradient(135deg, var(--accent-secondary, #FF1493) 0%, var(--accent-primary-active, #C2185B) 100%);
+        background: linear-gradient(135deg, #8cccbf 0%, #529f95 100%);
     }
     100% {
         transform: scale(1);
-        background: linear-gradient(135deg, var(--accent-primary-hover, #F06292) 0%, var(--accent-primary, #E91E63) 100%);
+        background: linear-gradient(135deg, #aeded3 0%, #7bbab1 100%);
     }
 }
 
@@ -296,7 +316,7 @@
 .visualization-scene {
     width: 200px;
     height: 200px;
-    background: linear-gradient(180deg, #E91E63 0%, #F06292 50%, #FFB3D9 100%);
+    background: linear-gradient(180deg, #d5ebe7 0%, #accfc4 50%, #92bfb2 100%);
     border-radius: 15px;
     position: relative;
     overflow: hidden;
@@ -307,20 +327,20 @@
     position: absolute;
     width: 60px;
     height: 60px;
-    background: var(--accent-primary, #E91E63);
+    background: #9ed9c0;
     border-radius: 50%;
     top: 20px;
     right: 20px;
-    box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+    box-shadow: 0 0 40px rgba(42, 156, 121, 0.6);
     animation: sunGlow 4s infinite ease-in-out;
 }
 
 @keyframes sunGlow {
     0%, 100% {
-        box-shadow: 0 0 40px rgba(233, 30, 99, 0.6);
+        box-shadow: 0 0 40px rgba(42, 156, 121, 0.6);
     }
     50% {
-        box-shadow: 0 0 60px rgba(233, 30, 99, 0.9);
+        box-shadow: 0 0 60px rgba(42, 156, 121, 0.9);
     }
 }
 
