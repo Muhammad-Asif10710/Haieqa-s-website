@@ -1,7 +1,7 @@
 // Chat functionality
 class ChatApp {
     constructor() {
-        this.messages = [{ role: "assistant", content: "How do you feel?" }];
+        this.messages = [{ role: "assistant", content: "I'm glad you're here. Whenever you're ready, tell me what's been weighing on you lately?" }];
         this.isThinking = false;
         this.init();
     }
