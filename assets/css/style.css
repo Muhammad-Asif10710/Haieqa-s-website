@@ -229,6 +229,7 @@ main.drake-main {
     height: 100vh;
     position: fixed; */
     /* overflow: hidden; */
+    padding-bottom: 80px;
 }
 .page-section {
     overflow: hidden;
@@ -2195,7 +2196,7 @@ body .body-overlay {
     padding: 20px;
     max-width: 500px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 100vh;
     overflow-y: auto;
     position: relative;
     border: 1px solid var(--border-color);
