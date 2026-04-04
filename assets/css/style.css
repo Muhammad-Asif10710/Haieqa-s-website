@@ -2391,7 +2391,7 @@ body .body-overlay {
 }
 
 .booking-close-button:hover {
-    background-color: var(--bg-secondary);
+    background-color: white;
 }
 
 .scroll-hint {
