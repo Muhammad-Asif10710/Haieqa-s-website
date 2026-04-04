@@ -2301,6 +2301,119 @@ body .body-overlay {
     }
 }
 
+/* Booking Styles */
+.booking-icon {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.booking-button {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: shine 2s ease-in-out infinite;
+}
+
+.booking-button:hover {
+    background: linear-gradient(135deg, var(--accent-primary-active), var(--accent-primary));
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+}
+
+.booking-bubble {
+    position: absolute;
+    right: 70px;
+    bottom: 14px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover));
+    color: var(--bg-primary);
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+@media (max-width: 350px) {
+    .booking-bubble {
+        display: none;
+    }
+}
+
+.booking-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.booking-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.booking-modal {
+    background-color: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.booking-container {
+    position: relative;
+}
+
+.booking-close-button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+    border-radius: 50%;
+    transition: black;
+}
+
+.booking-close-button:hover {
+    background-color: var(--bg-secondary);
+}
+
+.scroll-hint {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
 .thinking-text {
     font-style: italic;
     font-size: 14px;

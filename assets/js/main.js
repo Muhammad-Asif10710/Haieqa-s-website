@@ -32,6 +32,19 @@ $(function(){
             $(".global-color").removeClass("active");
         });
 
+        // Booking modal handlers
+        $(document).on('click', '#booking-toggle', function() {
+            $('#booking-modal').addClass('active');
+        });
+        $(document).on('click', '#booking-close', function() {
+            $('#booking-modal').removeClass('active');
+        });
+        $(document).on('click', '.booking-modal-overlay', function(e) {
+            if (e.target === this) {
+                $('#booking-modal').removeClass('active');
+            }
+        });
+
     });
 
     $(window).scroll(function() {
