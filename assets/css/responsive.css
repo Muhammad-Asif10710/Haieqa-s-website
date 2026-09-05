@@ -20,6 +20,18 @@
     }
 }
 
+@media (min-width: 1221px) and (max-width: 1555px) {
+    .drake-main {
+        padding-left: 370px;
+    }
+}
+
+@media (min-width: 1556px) {
+    .drake-main {
+        padding-left: 420px;
+    }
+}
+
 @media (max-width: 1555px) {
     .left-sidebar {
         max-width: 350px;

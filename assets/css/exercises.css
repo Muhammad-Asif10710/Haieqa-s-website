@@ -28,12 +28,12 @@
 
 .exercise-modal {
     background: linear-gradient(135deg, #e7f5f2 0%, #c0dfd7 100%);
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 500px;
+    width: min(92%, 500px);
+    max-height: calc(100vh - 24px);
+    overflow: hidden;
     box-shadow: 0 20px 40px rgba(20, 90, 80, 0.2);
     position: relative;
     animation: slideInModal 0.4s ease-out;
@@ -52,8 +52,8 @@
 
 .exercise-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12px;
+    right: 12px;
     background: rgba(29, 70, 62, 0.9);
     border: none;
     color: #f7fcfb;
@@ -81,9 +81,9 @@
 }
 
 #exerciseTitle {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin: 0 36px 12px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #164239;
@@ -108,9 +108,11 @@
 .exercise-animation-container {
     background: rgba(245, 255, 250, 0.38);
     border-radius: 15px;
-    padding: 40px 20px;
-    margin-bottom: 30px;
-    min-height: 250px;
+    padding: 16px;
+    margin-bottom: 14px;
+    height: 168px;
+    min-height: 0;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,17 +130,17 @@
 .exercise-instructions {
     background: rgba(255, 255, 255, 0.12);
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.6;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.4;
     color: #1f5b54;
 }
 
 .exercise-timer {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-family: 'Arial', sans-serif;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -150,7 +152,7 @@
 }
 
 .exercise-controls .theme-btn {
-    padding: 10px 25px;
+    padding: 8px 20px;
     background: rgba(255, 255, 255, 0.25);
     border: 2px solid rgba(100, 155, 140, 0.7);
     color: #124f48;
@@ -323,6 +325,26 @@
     animation: sceneShift 10s infinite ease-in-out;
 }
 
+.muscle-zones {
+    gap: 8px;
+    max-width: 150px;
+}
+
+.muscle-zone {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+}
+
+.body-scan-outline {
+    font-size: 82px;
+}
+
+.visualization-scene {
+    width: 150px;
+    height: 150px;
+}
+
 .sun {
     position: absolute;
     width: 60px;
@@ -385,24 +407,25 @@
 /* Responsive */
 @media (max-width: 768px) {
     .exercise-modal {
-        padding: 30px 20px;
+        padding: 18px 14px;
     }
 
     #exerciseTitle {
-        font-size: 22px;
+        font-size: 19px;
+        margin-bottom: 8px;
     }
 
     .breathing-circle {
-        width: 120px;
-        height: 120px;
+        width: 105px;
+        height: 105px;
     }
 
     .body-scan-outline {
-        font-size: 100px;
+        font-size: 70px;
     }
 
     .exercise-timer {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .exercise-controls {
@@ -412,5 +435,6 @@
     .exercise-controls .theme-btn {
         flex: 1;
         min-width: 100px;
+        padding: 8px 12px;
     }
 }

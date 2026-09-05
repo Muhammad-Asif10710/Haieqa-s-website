@@ -2,32 +2,32 @@
 const exerciseData = {
     muscle: {
         title: 'Progressive Muscle Relaxation',
-        instructions: 'Tense each muscle group for 5 seconds (face, arms, legs, back, buttocks & chest), then release. Focus on the difference between tension and relaxation. Scroll for timer',
+        instructions: 'Tense each muscle group for 5 seconds, then release. Notice the difference between tension and relaxation.',
         duration: 180
     },
     breathing: {
         title: 'Guided Breathing',
-        instructions: 'Follow the expanding and contracting circle. Breathe in for 4 counts, hold for 4, and exhale for 4. Scroll for timer',
+        instructions: 'Follow the circle: breathe in for 4 counts, hold for 4, and exhale for 4.',
         duration: 180
     },
     mindfulness: {
         title: 'Mindfulness Meditation',
-        instructions: 'Watch the particles flow and observe your thoughts without judgment. Let them pass like clouds. Scroll for timer',
+        instructions: 'Watch the particles and observe your thoughts without judgment. Let them pass like clouds.',
         duration: 300
     },
     grounding: {
         title: 'Grounding Technique (5-4-3-2-1)',
-        instructions: 'Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Scroll for timer',
+        instructions: 'Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, and 1 you taste.',
         duration: 240
     },
     bodyscan: {
         title: 'Body Scan Relaxation',
-        instructions: 'The figure will glow as you scan through your body from head to toe. Relax your body as its highlighted. Scroll for timer',
+        instructions: 'Scan from head to toe and relax each area as it is highlighted.',
         duration: 300
     },
     visualization: {
         title: 'Visualization & Imagery',
-        instructions: 'Close your eyes and imagine a serene scene. Focus on the details your mind creates and immerse yourself in the tranquility. Scroll for timer',
+        instructions: 'Close your eyes and imagine a serene scene. Focus on the details your mind creates.',
         duration: 240
     }
 };
