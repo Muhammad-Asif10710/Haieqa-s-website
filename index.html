@@ -30,7 +30,7 @@
     <!-- Additional -->
     <link rel="canonical" href="https://haieqazahid.com">
 
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
 
 
@@ -40,8 +40,8 @@
 
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/css/line-awesome.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
@@ -104,7 +104,7 @@
                                 <h1 class="scroll-animation" data-animation="fade_from_bottom">
                                      Hello! I'm Haieqa.
                                 </h1>
-                                <img src="assets/images/haieqa session.png" alt="Haieqa Zahid" style="float: right; width: 200px; height: auto; margin-left: 20px; margin-top: -50px;">
+                                <img loading="lazy" decoding="async" src="assets/images/haieqa session.png" alt="Haieqa Zahid" style="float: right; width: 200px; height: auto; margin-left: 20px; margin-top: -50px;">
                             </div>
                             
                     <p class="scroll-animation" data-animation="fade_from_bottom">
@@ -578,14 +578,14 @@
     <div class="chat-icon">
         <div class="chat-bubble" id="chat-bubble">Free Ai: Ready to talk? I’m here.</div><br>
         <button class="chat-button" id="chat-toggle" aria-label="Open chat">
-            <img src="assets/images/haieqa_zahid.png" alt="emoji" width="40" height="50">
+            <img loading="lazy" decoding="async" src="assets/images/haieqa_zahid.png" alt="emoji" width="40" height="50">
         </button>
     </div>
     <!-- Booking Icon -->
     <div class="booking-icon">
         <div class="booking-bubble" id="booking-bubble">Book a Session</div><br>
         <button class="booking-button" id="booking-toggle" aria-label="Book a session">
-            <img src="assets/images/session.png" alt="emoji" width="40" height="30">
+            <img loading="lazy" decoding="async" src="assets/images/session.png" alt="emoji" width="40" height="30">
         </button>
     </div>
     <!-- Chat Modal -->
@@ -615,7 +615,8 @@
                 
                     <div class="appointment-calendar">
                         <iframe
-                            src="https://cal.com/haieqa-zahid"
+                            id="booking-frame"
+                            data-src="https://cal.com/haieqa-zahid"
                             width="100%"
                             height="480px"
                             frameBorder="0"
@@ -628,17 +629,17 @@
         </div>
     </div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/owl.carousel.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script defer src="assets/js/jquery.js"></script>
+    <script defer src="assets/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/js/owl.carousel.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
     
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/color.js"></script>
-    <script src="assets/js/chat.js"></script>
-    <script src="assets/js/exercises.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/color.js"></script>
+    <script defer src="assets/js/chat.js"></script>
+    <script defer src="assets/js/exercises.js"></script>
 
 </body>
 

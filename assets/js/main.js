@@ -1,9 +1,8 @@
 
 $(function(){
 
-    $(window).on('load', function () {
-        $('.page-loader').delay('500').fadeOut(1000);
-    });
+    // Hide the loader as soon as the DOM is ready instead of waiting for every image/iframe
+    $('.page-loader').fadeOut(250);
 
     $(document).ready(function() {
 
@@ -34,6 +33,10 @@ $(function(){
 
         // Booking modal handlers
         $(document).on('click', '#booking-toggle', function() {
+            var frame = document.getElementById('booking-frame');
+            if (frame && !frame.getAttribute('src')) {
+                frame.setAttribute('src', frame.dataset.src);
+            }
             $('#booking-modal').addClass('active');
         });
         $(document).on('click', '#booking-close', function() {
